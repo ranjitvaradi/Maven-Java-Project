@@ -1,15 +1,4 @@
-def ansible = [:]
-         ansible.name = 'ansible'
-         ansible.host = '172.31.30.154'
-         ansible.user = 'centos'
-         ansible.password = 'Rnstech@123'
-         ansible.allowAnyHosts = true
-def kops = [:]
-         kops.name = 'kops'
-         kops.host = '172.31.34.51'
-         kops.user = 'centos'
-         kops.password = 'Rnstech@123'
-         kops.allowAnyHosts = true
+
 pipeline {
     agent any
 
@@ -20,7 +9,7 @@ pipeline {
           steps{
                 echo "Sonar Scanner"
                   sh "mvn clean compile"
-               withSonarQubeEnv('sonar-7') { 
+               withSonarQubeEnv('Sonar') { 
                  sh "mvn sonar:sonar "
                 }                     
           }
